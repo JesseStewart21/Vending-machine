@@ -1,5 +1,11 @@
 package com.techelevator;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Items {
     private String location;
     private String productName;
@@ -7,12 +13,12 @@ public class Items {
     private String type;
     private int quantity;
 
-    public Items(String location, String productName, double price, String type, int quantity) {
+    public Items(String location, String productName, double price, String type) {
         this.location = location;
         this.productName = productName;
         this.price = price;
         this.type = type;
-        this.quantity = quantity;
+
     }
 
     public String getLocation(){

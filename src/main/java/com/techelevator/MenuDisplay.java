@@ -30,7 +30,7 @@ public class MenuDisplay {
         System.out.println("Please select an option:");
         for(int i = 0; i < options.length; i++) {
             int optionNum = i + 1;
-            System.out.println( "(" + optionNum + options[i] );
+            System.out.println( "(" + optionNum + ") " + options[i] );
         }
     }
 
