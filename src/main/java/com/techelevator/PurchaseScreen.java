@@ -34,9 +34,12 @@ public class PurchaseScreen extends VendingMachine{
                 System.out.println();
                 String selection = userInput.nextLine();
 
-                int counter = 0;
-                for(int i = 0; i < inventory.; i++){
-                    counter++;
+                for(Items item: vendingMachine.getInventory()){
+                    if(selection.equals(item.getLocation())){
+                        if(item.getQuantity()>0){
+                            
+                        }
+                    }
                 }
 
             } else {
