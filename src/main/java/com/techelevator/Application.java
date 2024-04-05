@@ -14,6 +14,7 @@ public class Application {
 	private DisplayScreen displayScreen = new DisplayScreen();
 
 	private PurchaseScreen purchaseScreen = new PurchaseScreen();
+	
 
 	public static void main(String[] args) {
 		Application application = new Application();
@@ -27,9 +28,10 @@ public class Application {
 			System.out.println(INTRO);
 
 			String selectedOption = MenuDisplay.prompt(OPTIONS);
-			if (selectedOption.equals(displayScreen)) {
-				displayScreen.onChosenScreen(vendingMachine);
-			} else if (selectedOption.equals(purchaseScreen)) {
+			if (selectedOption.equals(OPTION_DISPLAY)) {
+				displayScreen.onChosenScreen(vendingMachine)
+				;
+			} else if (selectedOption.equals(OPTION_PURCHASE)) {
 				purchaseScreen.onChosenScreen(vendingMachine);
 			} else {
 				System.out.println("Thank you!");

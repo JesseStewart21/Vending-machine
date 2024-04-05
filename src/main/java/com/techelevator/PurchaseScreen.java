@@ -20,12 +20,12 @@ public class PurchaseScreen extends VendingMachine{
             String selectedOption;
 
             selectedOption = MenuDisplay.prompt(OPTIONS);
-            if (selectedOption.equals("Feed Money")) {
+            if (selectedOption.equals(OPTION_FEED)) {
                 getCurrentMoneyProvided();
-            } else if (selectedOption.equals("Select Product")) {
+            } else if (selectedOption.equals(OPTION_SELECT)) {
                 System.out.println(inventory);
             } else {
-                
+
 
                 break;
             }
