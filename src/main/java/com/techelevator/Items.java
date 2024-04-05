@@ -11,7 +11,7 @@ public class Items {
     private String productName;
     private double price;
     private String type;
-    private int quantity;
+    private int quantity = 5;
 
     public Items(String location, String productName, double price, String type) {
         this.location = location;

@@ -7,13 +7,27 @@ import java.util.List;
 import java.util.Scanner;
 
 public class VendingMachine {
-    private double balance;
+    private final double MIN_MONEY_PROVIDED = 0.00;
 
-    Scanner fileReader = new Scanner(System.in);
-    String filename = "vendingmachine.csv";
-    File file = new File(filename);
+    private double currentMoneyProvided = MIN_MONEY_PROVIDED;
+    public double getCurrentMoneyProvided(){
+        return currentMoneyProvided;
+    }
 
-    List<Items> inventory = new ArrayList<>();
+    public void setCurrentMoneyProvided(double currentMoneyProvided){
+        this.currentMoneyProvided = currentMoneyProvided;
+    }
+    private String filename = "vendingmachine.csv";
+    private File file = new File(filename);
+
+    public List<Items> inventory = new ArrayList<>();
+
+    public List<Items> getInventory(){
+        return inventory;
+    }
+
+
+
 
     public VendingMachine(){
         try (Scanner fileInput = new Scanner(file)){
@@ -33,6 +47,7 @@ public class VendingMachine {
 
                     Items newItem = new Items(location, productName, price, type);
                     inventory.add(newItem);
+
                 }
             }
 
@@ -41,5 +56,6 @@ public class VendingMachine {
         }
 
     }
+
 
 }
