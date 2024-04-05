@@ -10,12 +10,16 @@ public class Items {
 
     private int quantity = 5;
 
-    public Items(String location, String name, double price, String type) {
+    public Items(String location, String productName, double price, String type) {
         this.location = location;
         this.productName = productName;
         this.price = price;
         this.type = type;
 
+    }
+
+    public Items() {
+        
     }
 
 
@@ -65,6 +69,8 @@ public class Items {
     }
 
 
+    public void onChosenScreen(VendingMachine vendingMachine) {
+    }
 }
 
 

@@ -6,14 +6,25 @@ import java.util.*;
 
 public class VendingMachine {
 
-    private double balance;
+    private  final double MIN_MONEY_PROVIDED = 0.00;
+
+    private   double currentMoneyProvided  = MIN_MONEY_PROVIDED;
 
 
-    String filename = "vendingmachine.csv";
-    File file = new File(filename);
+    public  double getCurrentMoneyProvided() {
+        return currentMoneyProvided;
+    }
+
+ private String filename= "vendingmachine.csv";
+
+    private File file = new File(filename);
 
 
-    List<Items> inventory = new ArrayList<>();
+    private List<Items> inventory = new ArrayList<>();
+
+    public List<Items>getInventory(){
+        return inventory;
+    }
 
     public VendingMachine() {
 
@@ -47,4 +58,9 @@ public class VendingMachine {
 
 
     }
+
+
+    public void setCurrentMoneyProvided(double getCurrentMoneyProvided) {
+    }
 }
+

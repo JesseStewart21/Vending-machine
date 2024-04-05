@@ -14,7 +14,11 @@ public class Application {
 	private static final String OPTION_PURCHASE= "Purchase";
 	private static final String OPTION_EXIT = "Exit";
 
-	private static final String [] OPTIONS = {OPTION_DISPLAY,OPTION_DISPLAY,OPTION_EXIT};
+	private static final String [] OPTIONS = {OPTION_DISPLAY,OPTION_PURCHASE,OPTION_EXIT};
+
+
+	private Items items = new Items();
+	//private PurchaseScreen purchaseScreen = new PurchaseScreen();
 
 
 	private DisplayScreen displayScreen = new DisplayScreen();
@@ -30,12 +34,15 @@ public class Application {
 		VendingMachine vendingMachine = new VendingMachine();
 
 		while (true) {
+			System.out.println();
+			System.out.println();
+			System.out.println();
 			System.out.println(INTRO);
 
 			String selectedOption = MenuDisplay.prompt(OPTIONS);
-			if (selectedOption.equals(displayScreen)) {
+			if (selectedOption.equals(OPTION_DISPLAY)) {
 				displayScreen.onChosenScreen (vendingMachine);
-			} else if (selectedOption.equals(purchaseScreen)) {
+			} else if (selectedOption.equals(OPTION_PURCHASE)) {
 				purchaseScreen.onChosenScreen (vendingMachine);
 			} else {
 				System.out.println("Thank you !");
