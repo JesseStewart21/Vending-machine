@@ -50,7 +50,7 @@ public class Items {
         this.type = type;
     }
     public void setQuantity(int quantity){
-        this.quantity = 5;
+        this.quantity = quantity;
     }
 
 

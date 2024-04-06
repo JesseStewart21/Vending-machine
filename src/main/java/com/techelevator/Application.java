@@ -26,9 +26,8 @@ public class Application {
 
 		while (true) {
 			System.out.println();
-			System.out.println();
 			System.out.println(INTRO);
-
+			System.out.println();
 			String selectedOption = MenuDisplay.prompt(OPTIONS);
 			if (selectedOption.equals(OPTION_DISPLAY)) {
 				displayScreen.onChosenScreen(vendingMachine);

@@ -18,13 +18,13 @@ public class PurchaseScreen extends VendingMachine{
         while (true) {
 
             String selectedOption;
-
+            System.out.println();
             selectedOption = MenuDisplay.prompt(OPTIONS);
+            System.out.println();
             if (selectedOption.equals(OPTION_FEED)) {
                 onfeedMoney(vendingMachine);
                 System.out.println();
                 System.out.println("Your current balance is $"+(currentMoneyProvided));
-                System.out.println();
             } else if (selectedOption.equals(OPTION_SELECT)) {
                 for(Items item: vendingMachine.getInventory()){
                     System.out.println(item.getLocation() +" | "+item.getProductName() +" | "+item.getPrice() +" | "+item.getType() +" | "+item.getQuantity());
@@ -34,10 +34,29 @@ public class PurchaseScreen extends VendingMachine{
                 System.out.println();
                 String selection = userInput.nextLine();
 
+                /* search the list for selection location
+                -After dispensing, print item name, cost, money balance and selection type message
+                -If selection doesn't exist, say that and return
+                -If selection is sold out say that and return
+                 */
                 for(Items item: vendingMachine.getInventory()){
-                    if(selection.equals(item.getLocation())){
-                        if(item.getQuantity()>0){
-                            
+                    if(selection.equalsIgnoreCase(item.getLocation())){
+                        if(item.getQuantity()>0 && currentMoneyProvided > item.getPrice()){
+                        item.setQuantity(item.getQuantity()-1);
+                        System.out.println();
+                        double remaining = ((currentMoneyProvided - item.getPrice()) * 100) / 100;
+                        System.out.println(item.getProductName() +" | "+"$"+item.getPrice() +" | "+"Your current balance is $"+String.format("%.2f",remaining));
+                        currentMoneyProvided -= item.getPrice();
+                        System.out.println();
+                            if (item.getType().equalsIgnoreCase("Chip")){
+                                System.out.println("Crunch Crunch, Yum!");
+                            }if(item.getType().equalsIgnoreCase("Candy")){
+                                System.out.println("Munch Munch, Yum!");
+                            } if(item.getType().equalsIgnoreCase("Drink")){
+                                System.out.println("Glug Glug, Yum!");
+                            } if (item.getType().equalsIgnoreCase("Gum")){
+                                System.out.println("Chew Chew, Yum!");
+                            }
                         }
                     }
                 }
