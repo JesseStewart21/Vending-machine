@@ -24,7 +24,7 @@ public class PurchaseScreen extends VendingMachine{
             if (selectedOption.equals(OPTION_FEED)) {
                 onfeedMoney(vendingMachine);
                 System.out.println();
-                System.out.println("Your current balance is $"+(currentMoneyProvided));
+                System.out.println("Your current balance is $"+String.format("%.2f",currentMoneyProvided));
             } else if (selectedOption.equals(OPTION_SELECT)) {
                 for(Items item: vendingMachine.getInventory()){
                     System.out.println(item.getLocation() +" | "+item.getProductName() +" | "+item.getPrice() +" | "+item.getType() +" | "+item.getQuantity());
@@ -39,6 +39,7 @@ public class PurchaseScreen extends VendingMachine{
                 -If selection doesn't exist, say that and return
                 -If selection is sold out say that and return
                  */
+                System.out.println("You made an invalid selection, please try again");
                 for(Items item: vendingMachine.getInventory()){
                     if(selection.equalsIgnoreCase(item.getLocation())){
                         if(item.getQuantity()>0 && currentMoneyProvided > item.getPrice()){
@@ -57,12 +58,37 @@ public class PurchaseScreen extends VendingMachine{
                             } if (item.getType().equalsIgnoreCase("Gum")){
                                 System.out.println("Chew Chew, Yum!");
                             }
+                        } else if(item.getQuantity()<= 0){
+                            System.out.println();
+                            System.out.println("Your selection is currently sold out, sorry!");
                         }
                     }
                 }
 
-            } else {
+            } else if(selectedOption.equals(OPTION_FINISH)){
+                double change = currentMoneyProvided;
+                double quarter = 0;
+                double dime = 0;
+                double nickel = 0;
+                double penny = 0;
 
+                if (change > 0.00){
+                    quarter = Math.floor(change/.25);
+                    change = change % .25;
+                    dime = Math.floor(change/.10);
+                    change = change % .10;
+                    nickel = Math.floor(change/.05);
+                    change = change % .05;
+                    penny = Math.floor(change);
+                    currentMoneyProvided = change;
+                    System.out.println("Your change is " + quarter + " quarters," + " " + dime + " " + "dimes," + " " + nickel + " " + "nickels," + " "+ penny + " " + "pennies");
+                }
+                //System.out.println("Your change is $"+String.format("%.2f",change));
+
+                System.out.println();
+                System.out.println("Your current balance is $"+String.format("%.2f",currentMoneyProvided));
+                break;
+            }else {
 
                 break;
             }
