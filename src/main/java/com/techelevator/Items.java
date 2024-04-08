@@ -1,13 +1,16 @@
 package com.techelevator;
 
-public class Items {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
+public class Items {
     private String location;
     private String productName;
-
     private double price;
     private String type;
-
     private int quantity = 5;
 
     public Items(String location, String productName, double price, String type) {
@@ -18,64 +21,43 @@ public class Items {
 
     }
 
-    public Items() {
-        
-    }
-
-
-    //Getters
-    public String getLocation() {
+    public String getLocation(){
         return location;
     }
-
-    public String getProductName() {
+    public String getProductName(){
         return productName;
     }
-
-    public double getPrice() {
+    public double getPrice(){
         return price;
     }
-
-    public String getType() {
+    public String getType(){
         return type;
     }
-
-    public int getQuanity() {
+    public int getQuantity(){
         return quantity;
     }
 
-
-    //setters
-
-
-    public void setLocation(String location) {
+    public void setLocation(String location){
         this.location = location;
     }
-
-    public void setProductName(String productName) {
+    public void setProductName(String productName){
         this.productName = productName;
     }
-
-    public void setPrice(double price) {
+    public void setPrice(double price){
         this.price = price;
     }
-
     public void setType(String type){
         this.type = type;
     }
-
     public void setQuantity(int quantity){
         this.quantity = quantity;
     }
 
 
-    public void onChosenScreen(VendingMachine vendingMachine) {
-    }
+
+
+
+
+
+
 }
-
-
-
-
-
-
-
