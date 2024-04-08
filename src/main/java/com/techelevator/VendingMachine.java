@@ -60,6 +60,31 @@ public class VendingMachine {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void setCurrentMoneyProvided(double getCurrentMoneyProvided) {
     }
 }
