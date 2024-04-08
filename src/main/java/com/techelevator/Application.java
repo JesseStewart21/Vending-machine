@@ -23,7 +23,7 @@ public class Application {
 
 	public void beginApplication() {
 		VendingMachine vendingMachine = new VendingMachine();
-
+		//different options upon starting the app
 		while (true) {
 			System.out.println();
 			System.out.println(INTRO);

@@ -3,6 +3,7 @@ package com.techelevator;
 import java.util.Scanner;
 
 public class MenuDisplay {
+    //Menu startup and display modeled after cya game
     private static Scanner input = new Scanner(System.in);
     public static String prompt(String[] options) {
 

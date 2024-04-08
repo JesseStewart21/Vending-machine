@@ -14,7 +14,6 @@ public class PurchaseScreen extends VendingMachine{
     private double currentMoneyProvided;
 
     public void onChosenScreen(VendingMachine vendingMachine) {
-
         while (true) {
 
             String selectedOption;
@@ -66,11 +65,12 @@ public class PurchaseScreen extends VendingMachine{
                 }
 
             } else if(selectedOption.equals(OPTION_FINISH)){
+                //split change into coins
                 double change = currentMoneyProvided;
-                double quarter = 0;
-                double dime = 0;
-                double nickel = 0;
-                double penny = 0;
+                double quarter;
+                double dime;
+                double nickel;
+                double penny;
 
                 if (change > 0.00){
                     quarter = Math.floor(change/.25);
@@ -83,8 +83,6 @@ public class PurchaseScreen extends VendingMachine{
                     currentMoneyProvided = change;
                     System.out.println("Your change is " + quarter + " quarters," + " " + dime + " " + "dimes," + " " + nickel + " " + "nickels," + " "+ penny + " " + "pennies");
                 }
-                //System.out.println("Your change is $"+String.format("%.2f",change));
-
                 System.out.println();
                 System.out.println("Your current balance is $"+String.format("%.2f",currentMoneyProvided));
                 break;
@@ -94,7 +92,7 @@ public class PurchaseScreen extends VendingMachine{
             }
         }
     }
-
+    //deposit money function
     private void onfeedMoney(VendingMachine vendingMachine) {
         currentMoneyProvided += 1.00;
         System.out.println("You have deposited $1.00 to you current balance");
