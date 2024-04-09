@@ -8,12 +8,14 @@ import java.time.format.DateTimeFormatter;
 import java.io.PrintWriter;
 public class TransactionLogger {
 
-    public void logTransactions (double amount, double newBalance) {
+    public void logTransactions (double amount, double newBalance, String transactionType) {
+
+
+
 
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
         LocalDateTime date = LocalDateTime.now();
-        String transactionType = "feed money";
         String timeStampDetails = date.format(formatter) + " " + transactionType + ": $" + String.format("%.2f, amount") + " $" + String.format("%.2f", newBalance);
 
 
