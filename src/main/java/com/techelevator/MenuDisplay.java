@@ -27,7 +27,7 @@ public class MenuDisplay {
         }
         return options[selectedOption];
     }
-    private static void printOptions(String[] options) {
+    public static void printOptions(String[] options) {
         System.out.println("Please select an option:");
         for(int i = 0; i < options.length; i++) {
             int optionNum = i + 1;

@@ -5,11 +5,12 @@ import com.techelevator.PurchaseScreen;
 import com.techelevator.DisplayScreen;
 
 public class Application {
-	private static final String INTRO = "Welcome to the Vendo-Matic 800";
-	private static final String OPTION_DISPLAY = "Display Vending Machine Items";
-	private static final String OPTION_PURCHASE = "Purchase";
-	private static final String OPTION_EXIT = "Exit";
-	private static final String[] OPTIONS = {OPTION_DISPLAY, OPTION_PURCHASE, OPTION_EXIT};
+
+	public static final String INTRO = "Welcome to the Vendo-Matic 800";
+	public static final String OPTION_DISPLAY = "Display Vending Machine Items";
+	public static final String OPTION_PURCHASE = "Purchase";
+	public static final String OPTION_EXIT = "Exit";
+	public static final String[] OPTIONS = {OPTION_DISPLAY, OPTION_PURCHASE, OPTION_EXIT};
 
 	private DisplayScreen displayScreen = new DisplayScreen();
 
@@ -40,3 +41,5 @@ public class Application {
 		}
 	}
 }
+
+

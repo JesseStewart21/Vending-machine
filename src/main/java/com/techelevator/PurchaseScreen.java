@@ -5,10 +5,10 @@ import com.techelevator.Items;
 import java.util.Scanner;
 
 public class PurchaseScreen extends VendingMachine{
-    private static final String OPTION_FEED = "Feed Money";
-    private static final String OPTION_SELECT = "Select Product";
-    private static final String OPTION_FINISH = "Finish Transaction";
-    private static final String[] OPTIONS = {OPTION_FEED, OPTION_SELECT, OPTION_FINISH};
+    public static final String OPTION_FEED = "Feed Money";
+    public static final String OPTION_SELECT = "Select Product";
+   public static final String OPTION_FINISH = "Finish Transaction";
+    public static final String[] OPTIONS = {OPTION_FEED, OPTION_SELECT, OPTION_FINISH};
     private final Scanner userInput = new Scanner(System.in);
 
     private double currentMoneyProvided;
@@ -23,7 +23,8 @@ public class PurchaseScreen extends VendingMachine{
             if (selectedOption.equals(OPTION_FEED)) {
                 onfeedMoney(vendingMachine);
                 System.out.println();
-                System.out.println("Your current balance is $"+String.format("%.2f",currentMoneyProvided));
+                System.out.println("Your current balance is $" + currentMoneyProvided);
+                TransactionLogger.logTransactions(0.0,currentMoneyProvided, "FEED MONEY");
             } else if (selectedOption.equals(OPTION_SELECT)) {
                 for(Items item: vendingMachine.getInventory()){
                     System.out.println(item.getLocation() +" | "+item.getProductName() +" | "+item.getPrice() +" | "+item.getType() +" | "+item.getQuantity());
