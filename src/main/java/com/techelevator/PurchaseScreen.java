@@ -31,6 +31,8 @@ public class PurchaseScreen extends VendingMachine{
                     System.out.println();
                 }
                 System.out.println("Please enter your selection location");
+
+
                 System.out.println();
                 String selection = userInput.nextLine();
 
@@ -48,6 +50,8 @@ public class PurchaseScreen extends VendingMachine{
                         double remaining = ((currentMoneyProvided - item.getPrice()) * 100) / 100;
                         System.out.println(item.getProductName() +" | "+"$"+item.getPrice() +" | "+"Your current balance is $"+String.format("%.2f",remaining));
                         currentMoneyProvided -= item.getPrice();
+                            TransactionLogger.logTransactions(0.0,currentMoneyProvided, item.getProductName() + " " + item.getLocation() );
+
                         System.out.println();
                             if (item.getType().equalsIgnoreCase("Chip")){
                                 System.out.println("Crunch Crunch, Yum!");
@@ -83,6 +87,7 @@ public class PurchaseScreen extends VendingMachine{
                     penny = Math.floor(change);
                     currentMoneyProvided = change;
                     System.out.println("Your change is " + quarter + " quarters," + " " + dime + " " + "dimes," + " " + nickel + " " + "nickels," + " "+ penny + " " + "pennies");
+                    TransactionLogger.logTransactions(0.0,currentMoneyProvided,"GIVE CHANGE");
                 }
                 System.out.println();
                 System.out.println("Your current balance is $"+String.format("%.2f",currentMoneyProvided));

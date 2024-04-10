@@ -11,12 +11,17 @@ public class TransactionLogger {
     public static void logTransactions (double amount, double newBalance, String transactionType) {
 
 
-
-
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy  hh:mm:ss a");
         LocalDateTime date = LocalDateTime.now();
-        String timeStampDetails = date + " " + transactionType + ": $" + amount + " $" +  newBalance;
+        String timeStampDetails = date.format(formatter)   + " "  + transactionType + ":  $"  + amount + "  $"  +   newBalance;
+
+
+
+
+
+        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy | hh:mm:ss a");
+        //LocalDateTime date = LocalDateTime.now();
+        //String timeStampDetails = date + " " + transactionType + ":  $"  + amount + "  $"  +   newBalance;
 
 
 
